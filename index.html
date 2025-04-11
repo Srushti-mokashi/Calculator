@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex  justify-center h-screen bg-white">
+    <div class="bg-yellow-400 p-3 rounded-lg shadow-lg  w-[360px] h-[500px] mt-14 outline">
+        
+
+        
+            <input id="display" class="w-full border  text-right text-4xl p-6  rounded-lg  mb-2 bg-[#a7af5c] text-black  font-mono" type="text" style="font-family: 'DS-Digital', sans-serif;"  disabled>
+        
+        <div class="bg-black p-2 rounded-lg">
+        
+        <div class="grid grid-cols-4 gap-2 p-2 text-2xl text-white">
+            
+            <button class="btn   w-16 h-16 bg-red-600 hover:bg-red-500" onclick="clearDisplay()">C</button>
+            <button class="btn   w-16 h-16 bg-[linear-gradient(50deg,#2f4f2f,#3f2f3f)] hover:bg-[linear-gradient(180deg,#2f2f2f,#3f3f3f)]" onclick="appendOperator('%')">%</button>
+            <button class="btn   w-16 h-16 bg-[linear-gradient(50deg,#2f4f2f,#3f2f3f)] hover:bg-[linear-gradient(180deg,#2f2f2f,#3f3f3f)]" onclick="appendOperator('/')">/</button>
+            <button class="btn   w-16 h-16 bg-[linear-gradient(50deg,#2f4f2f,#3f2f3f)] hover:bg-[linear-gradient(180deg,#2f2f2f,#3f3f3f)]" onclick="sqrt()">√</button>
+
+            <button class="btn   w-16 h-16 bg-[linear-gradient(50deg,#2f4f2f,#3f2f3f)] hover:bg-[linear-gradient(180deg,#2f2f2f,#3f3f3f)]" onclick="appendNumber(7)">7</button>
+            <button class="btn   w-16 h-16 bg-[linear-gradient(50deg,#2f4f2f,#3f2f3f)] hover:bg-[linear-gradient(180deg,#2f2f2f,#3f3f3f)]" onclick="appendNumber(8)">8</button>
+            <button class="btn   w-16 h-16 bg-[linear-gradient(50deg,#2f4f2f,#3f2f3f)] hover:bg-[linear-gradient(180deg,#2f2f2f,#3f3f3f)]" onclick="appendNumber(9)">9</button>
+            <button class="btn   w-16 h-16 bg-[linear-gradient(50deg,#2f4f2f,#3f2f3f)] hover:bg-[linear-gradient(180deg,#2f2f2f,#3f3f3f)]" onclick="appendOperator('*')">*</button>
+            
+            <button class="btn   w-16 h-16 bg-[linear-gradient(50deg,#2f4f2f,#3f2f3f)] hover:bg-[linear-gradient(180deg,#2f2f2f,#3f3f3f)]" onclick="appendNumber(4)">4</button>
+            <button class="btn   w-16 h-16 bg-[linear-gradient(50deg,#2f4f2f,#3f2f3f)] hover:bg-[linear-gradient(180deg,#2f2f2f,#3f3f3f)]" onclick="appendNumber(5)">5</button>
+            <button class="btn   w-16 h-16 bg-[linear-gradient(50deg,#2f4f2f,#3f2f3f)] hover:bg-[linear-gradient(180deg,#2f2f2f,#3f3f3f)]" onclick="appendNumber(6)">6</button>
+            <button class="btn   w-16 h-16 bg-[linear-gradient(50deg,#2f4f2f,#3f2f3f)] hover:bg-[linear-gradient(180deg,#2f2f2f,#3f3f3f)]" onclick="appendOperator('-')">-</button>
+            
+            <button class="btn   w-16 h-16 bg-[linear-gradient(50deg,#2f4f2f,#3f2f3f)] hover:bg-[linear-gradient(180deg,#2f2f2f,#3f3f3f)]" onclick="appendNumber(1)">1</button>
+            <button class="btn   w-16 h-16 bg-[linear-gradient(50deg,#2f4f2f,#3f2f3f)] hover:bg-[linear-gradient(180deg,#2f2f2f,#3f3f3f)]" onclick="appendNumber(2)">2</button>
+            <button class="btn   w-16 h-16 bg-[linear-gradient(50deg,#2f4f2f,#3f2f3f)] hover:bg-[linear-gradient(180deg,#2f2f2f,#3f3f3f)]" onclick="appendNumber(3)">3</button>
+            <button class="btn   w-16 h-16 bg-[linear-gradient(50deg,#2f4f2f,#3f2f3f)] hover:bg-[linear-gradient(180deg,#2f2f2f,#3f3f3f)]" onclick="appendOperator('+')">+</button>
+            
+            <button class="btn   w-16 h-16 bg-[linear-gradient(50deg,#2f4f2f,#3f2f3f)] hover:bg-[linear-gradient(180deg,#2f2f2f,#3f3f3f)]" onclick="appendNumber(0)">0</button>
+            <button class="btn   w-16 h-16 bg-[linear-gradient(50deg,#2f4f2f,#3f2f3f)] hover:bg-[linear-gradient(180deg,#2f2f2f,#3f3f3f)]" onclick="appendDecimal()">.</button>
+            <button class="btn   w-36 h-16 bg-blue-500 hover:bg-blue-400" onclick="calculate()">=</button>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        let display = document.getElementById("display");
+        
+        function appendNumber(number) {
+            display.value += number;
+        }
+        
+        function appendOperator(operator) {
+            if (display.value !== "") {
+                display.value += operator;
+            }
+        }
+        
+        function appendDecimal() {
+            if (!display.value.includes(".")) {
+                display.value += ".";
+            }
+        }
+        
+        function clearDisplay() {
+            display.value = "";
+        }
+        
+        function calculate() {
+            try {
+                display.value = eval(display.value);
+            } catch {
+                display.value = "Error";
+            }
+        }
+        
+        function sqrt() {
+            if (display.value !== "") {
+                display.value = Math.sqrt(eval(display.value));
+            }
+        }
+
+        
+    function appendNumber(num) {
+        display.value += num;
+    }
+    </script>
+    
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/ds-digital');
+        .btn {
+            @apply bg-gray-300 p-4 text-lg font-bold rounded hover:bg-gray-400;
+        }
+    </style>
+</body>
+</html>
