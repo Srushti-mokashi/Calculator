@@ -9,6 +9,7 @@ A simple and responsive calculator built using HTML, Tailwind CSS, and JavaScrip
 
 
 🔗 Live Demo
+https://srushti-mokashi.github.io/Calculator/
 
 🚀 Features
 Basic arithmetic operations (add, subtract, multiply, divide, modulo and square root )
