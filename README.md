@@ -2,7 +2,8 @@
 A simple and responsive calculator built using HTML, Tailwind CSS, and JavaScript.
 
 📸 Screenshot
-![Screenshot (51)](https://github.com/user-attachments/assets/4ce08c0b-7840-4adf-9541-c1a70299c15e)
+![Screenshot (51)](https://github.com/user-attachments/assets/3d827aba-f117-42ef-a4cc-adcfaca87d8f)
+
 
 
 
